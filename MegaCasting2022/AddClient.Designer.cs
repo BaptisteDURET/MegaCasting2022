@@ -40,7 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -145,12 +145,12 @@
             this.label4.TabIndex = 22;
             this.label4.Text = "Nom utilisateur :";
             // 
-            // textBox1
+            // textBoxPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(514, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(126, 27);
-            this.textBox1.TabIndex = 33;
+            this.textBoxPassword.Location = new System.Drawing.Point(514, 44);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(126, 27);
+            this.textBoxPassword.TabIndex = 33;
             // 
             // label1
             // 
@@ -166,7 +166,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxVerif);
             this.Controls.Add(this.label8);
@@ -201,7 +201,7 @@
         private Label label5;
         private TextBox textBoxUsername;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox textBoxPassword;
         private Label label1;
     }
 }

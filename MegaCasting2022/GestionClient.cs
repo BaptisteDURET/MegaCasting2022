@@ -60,5 +60,15 @@ namespace MegaCasting2022
             ProfessionnelDB.Delete(pro);
             InitListBoxClient(listBoxClient);
         }
+
+        private void AddClient(object sender, EventArgs e)
+        {
+            AddClient addClient = new AddClient();
+            addClient.ShowDialog();
+            if (addClient.DialogResult == DialogResult.OK)
+            {
+                InitListBoxClient(listBoxClient);
+            }
+        }
     }
 }
