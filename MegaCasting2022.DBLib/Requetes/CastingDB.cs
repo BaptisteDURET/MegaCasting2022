@@ -16,5 +16,32 @@ namespace MegaCasting2022.DBLib.Requetes
                 return context.Castings.ToList();
             }
         }
+
+        public static void Delete(Casting casting)
+        {
+            using (var context = new MegaCasting2022Context())
+            {
+                context.Castings.Remove(casting);
+                context.SaveChanges();
+            }
+        }
+
+        public static void Update(Casting casting)
+        {
+            using (var context = new MegaCasting2022Context())
+            {
+                context.Castings.Update(casting);
+                context.SaveChanges();
+            }
+        }
+
+        public static void Insert(Casting casting)
+        {
+            using (var context = new MegaCasting2022Context())
+            {
+                context.Castings.Add(casting);
+                context.SaveChanges();
+            }
+        }
     }
 }

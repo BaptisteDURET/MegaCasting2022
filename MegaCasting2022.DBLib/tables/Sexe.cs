@@ -12,4 +12,9 @@ public partial class Sexe
     public virtual ICollection<Artiste> Artistes { get; } = new List<Artiste>();
 
     public virtual ICollection<Casting> IdentifiantCastings { get; } = new List<Casting>();
+
+    public override string ToString()
+    {
+        return Identifiant + " - " + Libelle;
+    }
 }

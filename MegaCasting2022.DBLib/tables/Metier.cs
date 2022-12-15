@@ -16,4 +16,9 @@ public partial class Metier
     public virtual DomaineMetier IdentifiantDomaineMetierNavigation { get; set; } = null!;
 
     public virtual ICollection<Casting> IdentifiantCastings { get; } = new List<Casting>();
+
+    public override string ToString()
+    {
+        return Identifiant + " - " + Libelle;
+    }
 }

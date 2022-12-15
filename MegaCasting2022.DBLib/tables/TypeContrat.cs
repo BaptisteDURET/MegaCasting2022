@@ -12,4 +12,9 @@ public partial class TypeContrat
     public string LibelleLong { get; set; } = null!;
 
     public virtual ICollection<Casting> IdentifiantCastings { get; } = new List<Casting>();
+
+    public override string ToString()
+    {
+        return Identifiant + " - " + LibelleCourt;
+    }
 }

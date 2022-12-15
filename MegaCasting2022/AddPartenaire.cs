@@ -95,5 +95,10 @@ namespace MegaCasting2022
                 DialogResult dialogResult = MessageBox.Show("Le client " + par.NomUtilisateur + " de l'entreprise " + par.Entreprise + " a bien été ajouté !", "Succès", buttons, MessageBoxIcon.Information);
             }
         }
+
+        private void Close(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

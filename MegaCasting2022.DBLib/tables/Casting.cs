@@ -49,6 +49,6 @@ public partial class Casting
 
     public override string ToString()
     {
-        return Identifiant + " - " + Intitule + " - " + Reference;
+        return Identifiant + " - " + Intitule + " - Ref : " + Reference;
     }
 }
