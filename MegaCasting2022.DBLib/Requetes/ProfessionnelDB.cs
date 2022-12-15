@@ -48,5 +48,17 @@ namespace MegaCasting2022.DBLib.Requetes
                 }
             }
         }
+
+        public static void Update(Professionnel p)
+        {
+            using (var context = new MegaCasting2022Context())
+            {
+                if (p != null)
+                {
+                    context.Professionnels.Update(p);
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }

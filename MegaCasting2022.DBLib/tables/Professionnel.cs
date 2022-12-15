@@ -22,6 +22,6 @@ public partial class Professionnel : Utilisateur
     public virtual ICollection<PackDeCasting> IdentifiantPacks { get; } = new List<PackDeCasting>();
     public override string ToString()
     {
-        return Identifiant + " - " + Entreprise;
+        return Identifiant + " - " + NomUtilisateur + " - " + Entreprise;
     }
 }

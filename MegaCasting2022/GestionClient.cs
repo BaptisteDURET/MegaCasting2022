@@ -17,19 +17,19 @@ namespace MegaCasting2022
         public GestionClient()
         {
             InitializeComponent();
-            InitListBoxClient(listBoxClient);
+            InitListBoxClient();
         }
-        private void InitListBoxClient(ListBox listbox)
+        private void InitListBoxClient()
         {
             listBoxClient.Items.Clear();
             List<Professionnel> professionnels = ProfessionnelDB.All();
             foreach (Professionnel abo in professionnels)
             {
-                listbox.Items.Add(abo);
+                listBoxClient.Items.Add(abo);
             }
-            if (listbox.Items.Count > 0)
+            if (listBoxClient.Items.Count > 0)
             {
-                listbox.SelectedIndex = 0;
+                listBoxClient.SelectedIndex = 0;
             }
         }
 
@@ -58,7 +58,7 @@ namespace MegaCasting2022
         {
             Professionnel pro = (Professionnel)listBoxClient.SelectedItem;
             ProfessionnelDB.Delete(pro);
-            InitListBoxClient(listBoxClient);
+            InitListBoxClient();
         }
 
         private void AddClient(object sender, EventArgs e)
@@ -67,7 +67,25 @@ namespace MegaCasting2022
             addClient.ShowDialog();
             if (addClient.DialogResult == DialogResult.OK)
             {
-                InitListBoxClient(listBoxClient);
+                InitListBoxClient();
+            }
+        }
+
+        private void ModifyClient(object sender, EventArgs e)
+        {
+            Professionnel pro = (Professionnel)listBoxClient.SelectedItem;
+            if (textBoxUsername.Text != pro.NomUtilisateur || textBoxPhone.Text != pro.NumeroTelephone || textBoxEmail.Text != pro.Email || textBoxEntreprise.Text != pro.Entreprise || checkBoxVerif.Checked != pro.Verifie)
+            {
+                Professionnel p = new Professionnel();
+                pro.NomUtilisateur = textBoxUsername.Text;
+                pro.NumeroTelephone = textBoxPhone.Text;
+                pro.Email = textBoxEmail.Text;
+                pro.Entreprise = textBoxEntreprise.Text;
+                pro.Verifie = checkBoxVerif.Checked;
+                ProfessionnelDB.Update(pro);
+                InitListBoxClient();
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult dialogResult = MessageBox.Show("Le client " + pro.NomUtilisateur + " de l'entreprise " + pro.Entreprise + " a bien été mis à jour !", "Succès", buttons, MessageBoxIcon.Information);
             }
         }
     }

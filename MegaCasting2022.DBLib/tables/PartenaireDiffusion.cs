@@ -12,4 +12,8 @@ public partial class PartenaireDiffusion : Utilisateur
     public bool Verifie { get; set; }
 
     //public virtual Utilisateur IdentifiantNavigation { get; set; } = null!;
+    public override string ToString()
+    {
+        return Identifiant + " - " + NomUtilisateur + " - " + Entreprise;
+    }
 }

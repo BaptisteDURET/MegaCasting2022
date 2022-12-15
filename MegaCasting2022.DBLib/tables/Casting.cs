@@ -46,4 +46,9 @@ public partial class Casting
     public virtual ICollection<Sexe> IdentifiantSexes { get; } = new List<Sexe>();
 
     public virtual ICollection<TypeContrat> IdentifiantTypeContrats { get; } = new List<TypeContrat>();
+
+    public override string ToString()
+    {
+        return Identifiant + " - " + Intitule + " - " + Reference;
+    }
 }
