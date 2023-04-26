@@ -1,5 +1,6 @@
 ﻿using MegaCasting2022.DBLib.Requetes;
 using MegaCasting2022.DBLib.tables;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,15 +11,22 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace MegaCasting2022
 {
     public partial class GestionCasting : UserControl
     {
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
+
+
         public GestionCasting()
         {
             InitializeComponent();
-            initListBoxCasting();
+            InitListBoxCasting();
+            InitListBoxSexe();
         }
 
         private void ConfigSexes(object sender, EventArgs e)
@@ -36,23 +44,56 @@ namespace MegaCasting2022
 
         }
 
-        private void initListBoxCasting()
+        private void InitListBoxCasting()
         {
             listBoxCasting.Items.Clear();
+
             List<Casting> castings = CastingDB.All();
+
             foreach (Casting casting in castings)
             {
                 listBoxCasting.Items.Add(casting);
             }
+
             if (listBoxCasting.Items.Count > 0)
             {
                 listBoxCasting.SelectedIndex = 0;
             }
         }
 
+        private void InitListBoxSexe()
+        {
+            listBoxSexes.Items.Clear();
+
+            if (listBoxCasting.SelectedItem != null)
+            {
+                Casting casting = (Casting)listBoxCasting.SelectedItem;
+                List<Sexe> sexes = SexeDB.All();
+                AllocConsole();
+                Console.WriteLine(casting.IdentifiantSexes.ToList().Count);
+                Console.WriteLine(casting.Identifiant);
+
+                foreach (Sexe sexe in casting.IdentifiantSexes.ToList())
+                {
+                    Console.WriteLine("test2");
+                    listBoxSexes.Items.Add(sexe);
+                    foreach (Sexe s in sexes)
+                    {
+                        if (sexe.Identifiant == s.Identifiant)
+                        {
+                            listBoxSexes.Items.Add(s);
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+
         private void UpdateCastingInfo(object sender, EventArgs e)
         {
-            if(listBoxCasting.SelectedItems != null)
+            if (listBoxCasting.SelectedItem != null)
             {
                 Casting casting = (Casting)listBoxCasting.SelectedItem;
 
@@ -60,8 +101,8 @@ namespace MegaCasting2022
 
                 labelId.Text = casting.Identifiant.ToString();
                 labelReference.Text = casting.Reference;
-                
-                
+
+
                 dateTimePickerDebutPubli.Value = casting.DateDebutPublication;
                 dateTimePickerDebutContrat.Value = casting.DateDebutContrat;
 
@@ -83,22 +124,10 @@ namespace MegaCasting2022
                 textBoxAdrPostale.Text = casting.AdressePostale;
                 textBoxLocalisation.Text = casting.Localisation;
 
-                listBoxSexes.Items.Clear();
                 listBoxTypesContrat.Items.Clear();
                 listBoxMetiers.Items.Clear();
 
-                //Sexe s = new Sexe();
-                //listBoxSexes.Items.Add(s);
-                //listBoxSexes.Items.Add(s);
-                //listBoxSexes.Items.Add(s);
-                //listBoxSexes.Items.Add(s);
-                //listBoxSexes.Items.Add(s);
-                //listBoxSexes.Items.Add(s);
-                
-                foreach (Sexe sexe in casting.IdentifiantSexes)
-                {
-                    listBoxSexes.Items.Add(sexe);
-                }
+                InitListBoxSexe();
 
                 foreach (TypeContrat typeContrat in casting.IdentifiantTypeContrats)
                 {
@@ -119,7 +148,7 @@ namespace MegaCasting2022
             {
                 Casting casting = (Casting)listBoxCasting.SelectedItem;
                 CastingDB.Delete(casting);
-                initListBoxCasting();
+                InitListBoxCasting();
             }
         }
 
@@ -128,7 +157,21 @@ namespace MegaCasting2022
             if (listBoxCasting.SelectedItems != null)
             {
                 Casting casting = (Casting)listBoxCasting.SelectedItem;
-                if (casting.Verifie != checkBoxVerif.Checked || casting.Reference != labelReference.Text || casting.DateDebutPublication != dateTimePickerDebutPubli.Value || casting.DateDebutContrat != dateTimePickerDebutContrat.Value || casting.DureeDiffusion != numericUpDownDureeDiff.Value || casting.NombrePosteDispo != numericUpDownNbrPoste.Value || casting.Intitule != textBoxIntitule.Text || casting.Description != textBoxDescPoste.Text || casting.DescriptionProfilRecherche != textBoxDescProfil.Text || casting.Email != textBoxEmail.Text || casting.NumeroTelephone != textBoxPhone.Text || casting.Fax != textBoxFax.Text || casting.SiteWeb != textBoxWeb.Text || casting.AdressePostale != textBoxAdrPostale.Text || casting.Localisation != textBoxLocalisation.Text)
+                if (casting.Verifie != checkBoxVerif.Checked
+                    || casting.Reference != labelReference.Text
+                    || casting.DateDebutPublication != dateTimePickerDebutPubli.Value
+                    || casting.DateDebutContrat != dateTimePickerDebutContrat.Value
+                    || casting.DureeDiffusion != numericUpDownDureeDiff.Value
+                    || casting.NombrePosteDispo != numericUpDownNbrPoste.Value
+                    || casting.Intitule != textBoxIntitule.Text
+                    || casting.Description != textBoxDescPoste.Text
+                    || casting.DescriptionProfilRecherche != textBoxDescProfil.Text
+                    || casting.Email != textBoxEmail.Text
+                    || casting.NumeroTelephone != textBoxPhone.Text
+                    || casting.Fax != textBoxFax.Text
+                    || casting.SiteWeb != textBoxWeb.Text
+                    || casting.AdressePostale != textBoxAdrPostale.Text
+                    || casting.Localisation != textBoxLocalisation.Text)
                 {
                     casting.Verifie = checkBoxVerif.Checked;
                     casting.Reference = labelReference.Text;
@@ -146,9 +189,12 @@ namespace MegaCasting2022
                     casting.AdressePostale = textBoxAdrPostale.Text;
                     casting.Localisation = textBoxLocalisation.Text;
 
+
+
                     foreach (Sexe sexe in listBoxSexes.Items)
                     {
                         casting.IdentifiantSexes.Add(sexe);
+
                     }
 
                     foreach (TypeContrat typeContrat in listBoxTypesContrat.Items)
@@ -162,12 +208,12 @@ namespace MegaCasting2022
                     }
 
                     CastingDB.Update(casting);
-                    initListBoxCasting();
+                    InitListBoxCasting();
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
                     DialogResult dialogResult = MessageBox.Show("Le casting " + casting.Intitule + " a bien été mis à jour !", "Succès", buttons, MessageBoxIcon.Information);
                 }
             }
-                
+
         }
         private void AddCasting(object sender, EventArgs e)
         {
@@ -175,7 +221,24 @@ namespace MegaCasting2022
             addCasting.ShowDialog();
             if (addCasting.DialogResult == DialogResult.OK)
             {
-                initListBoxCasting();
+                InitListBoxCasting();
+            }
+        }
+
+        private void SearchCastings(object sender, EventArgs e)
+        {
+            if (textBoxSearch?.Text.Count() >= 3)
+            {
+                List<Casting> castings = CastingDB.Search(textBoxSearch.Text);
+                listBoxCasting.Items.Clear();
+                foreach (Casting casting in castings)
+                {
+                    listBoxCasting.Items.Add(casting);
+                }
+            }
+            else
+            {
+                InitListBoxCasting();
             }
         }
     }

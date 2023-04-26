@@ -28,511 +28,531 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.listBoxCasting = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelId = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.labelReference = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxIntitule = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePickerDebutPubli = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDownDureeDiff = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePickerDebutContrat = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDownNbrPoste = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxDescPoste = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBoxDescProfil = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.checkBoxVerif = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBoxPhone = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBoxFax = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBoxWeb = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBoxAdrPostale = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.listBoxSexes = new System.Windows.Forms.ListBox();
-            this.listBoxTypesContrat = new System.Windows.Forms.ListBox();
-            this.listBoxMetiers = new System.Windows.Forms.ListBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBoxLocalisation = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDureeDiff)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNbrPoste)).BeginInit();
-            this.SuspendLayout();
+            buttonDelete = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            label2 = new Label();
+            listBoxCasting = new ListBox();
+            label1 = new Label();
+            labelId = new Label();
+            label4 = new Label();
+            labelReference = new Label();
+            label6 = new Label();
+            textBoxIntitule = new TextBox();
+            label7 = new Label();
+            dateTimePickerDebutPubli = new DateTimePicker();
+            label8 = new Label();
+            numericUpDownDureeDiff = new NumericUpDown();
+            dateTimePickerDebutContrat = new DateTimePicker();
+            label9 = new Label();
+            numericUpDownNbrPoste = new NumericUpDown();
+            label10 = new Label();
+            textBoxDescPoste = new TextBox();
+            label11 = new Label();
+            textBoxDescProfil = new TextBox();
+            label12 = new Label();
+            checkBoxVerif = new CheckBox();
+            label13 = new Label();
+            textBoxPhone = new TextBox();
+            label16 = new Label();
+            textBoxEmail = new TextBox();
+            label15 = new Label();
+            textBoxFax = new TextBox();
+            label17 = new Label();
+            textBoxWeb = new TextBox();
+            label14 = new Label();
+            textBoxAdrPostale = new TextBox();
+            label18 = new Label();
+            listBoxSexes = new ListBox();
+            listBoxTypesContrat = new ListBox();
+            listBoxMetiers = new ListBox();
+            label19 = new Label();
+            label20 = new Label();
+            label21 = new Label();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            textBoxLocalisation = new TextBox();
+            label3 = new Label();
+            textBoxSearch = new TextBox();
+            label5 = new Label();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownDureeDiff).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownNbrPoste).BeginInit();
+            SuspendLayout();
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(186, 603);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(120, 55);
-            this.buttonDelete.TabIndex = 43;
-            this.buttonDelete.Text = "Supprimer";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.DeleteCasting);
+            buttonDelete.Location = new Point(186, 603);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(120, 55);
+            buttonDelete.TabIndex = 43;
+            buttonDelete.Text = "Supprimer";
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += DeleteCasting;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(522, 603);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 55);
-            this.button2.TabIndex = 42;
-            this.button2.Text = "Modifier";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.UpdateCasting);
+            button2.Location = new Point(522, 603);
+            button2.Name = "button2";
+            button2.Size = new Size(148, 55);
+            button2.TabIndex = 42;
+            button2.Text = "Modifier";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += UpdateCasting;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(24, 603);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 55);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "Ajouter";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AddCasting);
+            button1.Location = new Point(24, 603);
+            button1.Name = "button1";
+            button1.Size = new Size(120, 55);
+            button1.TabIndex = 41;
+            button1.Text = "Ajouter";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += AddCasting;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(79, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 35);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "Castings";
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(79, 2);
+            label2.Name = "label2";
+            label2.Size = new Size(108, 35);
+            label2.TabIndex = 40;
+            label2.Text = "Castings";
             // 
             // listBoxCasting
             // 
-            this.listBoxCasting.FormattingEnabled = true;
-            this.listBoxCasting.ItemHeight = 20;
-            this.listBoxCasting.Location = new System.Drawing.Point(24, 40);
-            this.listBoxCasting.Name = "listBoxCasting";
-            this.listBoxCasting.Size = new System.Drawing.Size(254, 524);
-            this.listBoxCasting.TabIndex = 39;
-            this.listBoxCasting.SelectedIndexChanged += new System.EventHandler(this.UpdateCastingInfo);
+            listBoxCasting.FormattingEnabled = true;
+            listBoxCasting.ItemHeight = 20;
+            listBoxCasting.Location = new Point(24, 120);
+            listBoxCasting.Name = "listBoxCasting";
+            listBoxCasting.Size = new Size(254, 444);
+            listBoxCasting.TabIndex = 39;
+            listBoxCasting.SelectedIndexChanged += UpdateCastingInfo;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(349, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 20);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Identifiant :";
+            label1.AutoSize = true;
+            label1.Location = new Point(349, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 20);
+            label1.TabIndex = 44;
+            label1.Text = "Identifiant :";
             // 
             // labelId
             // 
-            this.labelId.AutoSize = true;
-            this.labelId.Location = new System.Drawing.Point(439, 27);
-            this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(45, 20);
-            this.labelId.TabIndex = 45;
-            this.labelId.Text = "None";
+            labelId.AutoSize = true;
+            labelId.Location = new Point(439, 27);
+            labelId.Name = "labelId";
+            labelId.Size = new Size(45, 20);
+            labelId.TabIndex = 45;
+            labelId.Text = "None";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(490, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 20);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Référence :";
+            label4.AutoSize = true;
+            label4.Location = new Point(490, 27);
+            label4.Name = "label4";
+            label4.Size = new Size(82, 20);
+            label4.TabIndex = 46;
+            label4.Text = "Référence :";
             // 
             // labelReference
             // 
-            this.labelReference.AutoSize = true;
-            this.labelReference.Location = new System.Drawing.Point(578, 27);
-            this.labelReference.Name = "labelReference";
-            this.labelReference.Size = new System.Drawing.Size(45, 20);
-            this.labelReference.TabIndex = 47;
-            this.labelReference.Text = "None";
+            labelReference.AutoSize = true;
+            labelReference.Location = new Point(578, 27);
+            labelReference.Name = "labelReference";
+            labelReference.Size = new Size(45, 20);
+            labelReference.TabIndex = 47;
+            labelReference.Text = "None";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(349, 62);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 20);
-            this.label6.TabIndex = 48;
-            this.label6.Text = "Intitulé :";
+            label6.AutoSize = true;
+            label6.Location = new Point(349, 62);
+            label6.Name = "label6";
+            label6.Size = new Size(62, 20);
+            label6.TabIndex = 48;
+            label6.Text = "Intitulé :";
             // 
             // textBoxIntitule
             // 
-            this.textBoxIntitule.Location = new System.Drawing.Point(451, 59);
-            this.textBoxIntitule.Name = "textBoxIntitule";
-            this.textBoxIntitule.Size = new System.Drawing.Size(194, 27);
-            this.textBoxIntitule.TabIndex = 49;
+            textBoxIntitule.Location = new Point(451, 59);
+            textBoxIntitule.Name = "textBoxIntitule";
+            textBoxIntitule.Size = new Size(194, 27);
+            textBoxIntitule.TabIndex = 49;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(343, 110);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(170, 20);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "Date début publication :";
+            label7.AutoSize = true;
+            label7.Location = new Point(343, 110);
+            label7.Name = "label7";
+            label7.Size = new Size(170, 20);
+            label7.TabIndex = 50;
+            label7.Text = "Date début publication :";
             // 
             // dateTimePickerDebutPubli
             // 
-            this.dateTimePickerDebutPubli.Location = new System.Drawing.Point(556, 105);
-            this.dateTimePickerDebutPubli.Name = "dateTimePickerDebutPubli";
-            this.dateTimePickerDebutPubli.Size = new System.Drawing.Size(232, 27);
-            this.dateTimePickerDebutPubli.TabIndex = 51;
+            dateTimePickerDebutPubli.Location = new Point(556, 105);
+            dateTimePickerDebutPubli.Name = "dateTimePickerDebutPubli";
+            dateTimePickerDebutPubli.Size = new Size(232, 27);
+            dateTimePickerDebutPubli.TabIndex = 51;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(331, 199);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(195, 20);
-            this.label8.TabIndex = 52;
-            this.label8.Text = "Durée diffusion (en heures) :";
+            label8.AutoSize = true;
+            label8.Location = new Point(331, 199);
+            label8.Name = "label8";
+            label8.Size = new Size(195, 20);
+            label8.TabIndex = 52;
+            label8.Text = "Durée diffusion (en heures) :";
             // 
             // numericUpDownDureeDiff
             // 
-            this.numericUpDownDureeDiff.Location = new System.Drawing.Point(566, 197);
-            this.numericUpDownDureeDiff.Name = "numericUpDownDureeDiff";
-            this.numericUpDownDureeDiff.Size = new System.Drawing.Size(60, 27);
-            this.numericUpDownDureeDiff.TabIndex = 53;
+            numericUpDownDureeDiff.Location = new Point(566, 197);
+            numericUpDownDureeDiff.Name = "numericUpDownDureeDiff";
+            numericUpDownDureeDiff.Size = new Size(60, 27);
+            numericUpDownDureeDiff.TabIndex = 53;
             // 
             // dateTimePickerDebutContrat
             // 
-            this.dateTimePickerDebutContrat.Location = new System.Drawing.Point(556, 152);
-            this.dateTimePickerDebutContrat.Name = "dateTimePickerDebutContrat";
-            this.dateTimePickerDebutContrat.Size = new System.Drawing.Size(232, 27);
-            this.dateTimePickerDebutContrat.TabIndex = 55;
+            dateTimePickerDebutContrat.Location = new Point(556, 152);
+            dateTimePickerDebutContrat.Name = "dateTimePickerDebutContrat";
+            dateTimePickerDebutContrat.Size = new Size(232, 27);
+            dateTimePickerDebutContrat.TabIndex = 55;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(371, 159);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(142, 20);
-            this.label9.TabIndex = 54;
-            this.label9.Text = "Date début contrat :";
+            label9.AutoSize = true;
+            label9.Location = new Point(371, 159);
+            label9.Name = "label9";
+            label9.Size = new Size(142, 20);
+            label9.TabIndex = 54;
+            label9.Text = "Date début contrat :";
             // 
             // numericUpDownNbrPoste
             // 
-            this.numericUpDownNbrPoste.Location = new System.Drawing.Point(794, 197);
-            this.numericUpDownNbrPoste.Name = "numericUpDownNbrPoste";
-            this.numericUpDownNbrPoste.Size = new System.Drawing.Size(60, 27);
-            this.numericUpDownNbrPoste.TabIndex = 57;
+            numericUpDownNbrPoste.Location = new Point(794, 197);
+            numericUpDownNbrPoste.Name = "numericUpDownNbrPoste";
+            numericUpDownNbrPoste.Size = new Size(60, 27);
+            numericUpDownNbrPoste.TabIndex = 57;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(649, 199);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(139, 20);
-            this.label10.TabIndex = 56;
-            this.label10.Text = "Nombre de postes :";
+            label10.AutoSize = true;
+            label10.Location = new Point(649, 199);
+            label10.Name = "label10";
+            label10.Size = new Size(139, 20);
+            label10.TabIndex = 56;
+            label10.Text = "Nombre de postes :";
             // 
             // textBoxDescPoste
             // 
-            this.textBoxDescPoste.Location = new System.Drawing.Point(548, 239);
-            this.textBoxDescPoste.Name = "textBoxDescPoste";
-            this.textBoxDescPoste.Size = new System.Drawing.Size(282, 27);
-            this.textBoxDescPoste.TabIndex = 59;
+            textBoxDescPoste.Location = new Point(548, 239);
+            textBoxDescPoste.Name = "textBoxDescPoste";
+            textBoxDescPoste.Size = new Size(282, 27);
+            textBoxDescPoste.TabIndex = 59;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(380, 242);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(133, 20);
-            this.label11.TabIndex = 58;
-            this.label11.Text = "Description poste :";
+            label11.AutoSize = true;
+            label11.Location = new Point(380, 242);
+            label11.Name = "label11";
+            label11.Size = new Size(133, 20);
+            label11.TabIndex = 58;
+            label11.Text = "Description poste :";
             // 
             // textBoxDescProfil
             // 
-            this.textBoxDescProfil.Location = new System.Drawing.Point(548, 272);
-            this.textBoxDescProfil.Name = "textBoxDescProfil";
-            this.textBoxDescProfil.Size = new System.Drawing.Size(282, 27);
-            this.textBoxDescProfil.TabIndex = 61;
+            textBoxDescProfil.Location = new Point(548, 272);
+            textBoxDescProfil.Name = "textBoxDescProfil";
+            textBoxDescProfil.Size = new Size(282, 27);
+            textBoxDescProfil.TabIndex = 61;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(381, 275);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(132, 20);
-            this.label12.TabIndex = 60;
-            this.label12.Text = "Description profil :";
+            label12.AutoSize = true;
+            label12.Location = new Point(381, 275);
+            label12.Name = "label12";
+            label12.Size = new Size(132, 20);
+            label12.TabIndex = 60;
+            label12.Text = "Description profil :";
             // 
             // checkBoxVerif
             // 
-            this.checkBoxVerif.AutoSize = true;
-            this.checkBoxVerif.Location = new System.Drawing.Point(779, 62);
-            this.checkBoxVerif.Name = "checkBoxVerif";
-            this.checkBoxVerif.Size = new System.Drawing.Size(18, 17);
-            this.checkBoxVerif.TabIndex = 63;
-            this.checkBoxVerif.UseVisualStyleBackColor = true;
+            checkBoxVerif.AutoSize = true;
+            checkBoxVerif.Location = new Point(779, 62);
+            checkBoxVerif.Name = "checkBoxVerif";
+            checkBoxVerif.Size = new Size(18, 17);
+            checkBoxVerif.TabIndex = 63;
+            checkBoxVerif.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(692, 59);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(58, 20);
-            this.label13.TabIndex = 62;
-            this.label13.Text = "Vérifié :";
+            label13.AutoSize = true;
+            label13.Location = new Point(692, 59);
+            label13.Name = "label13";
+            label13.Size = new Size(58, 20);
+            label13.TabIndex = 62;
+            label13.Text = "Vérifié :";
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(566, 305);
-            this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(114, 27);
-            this.textBoxPhone.TabIndex = 69;
+            textBoxPhone.Location = new Point(566, 305);
+            textBoxPhone.Name = "textBoxPhone";
+            textBoxPhone.Size = new Size(114, 27);
+            textBoxPhone.TabIndex = 69;
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(475, 308);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(85, 20);
-            this.label16.TabIndex = 68;
-            this.label16.Text = "Téléphone :";
+            label16.AutoSize = true;
+            label16.Location = new Point(475, 308);
+            label16.Name = "label16";
+            label16.Size = new Size(85, 20);
+            label16.TabIndex = 68;
+            label16.Text = "Téléphone :";
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(346, 305);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(114, 27);
-            this.textBoxEmail.TabIndex = 71;
+            textBoxEmail.Location = new Point(346, 305);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(114, 27);
+            textBoxEmail.TabIndex = 71;
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(287, 308);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 20);
-            this.label15.TabIndex = 70;
-            this.label15.Text = "Email :";
+            label15.AutoSize = true;
+            label15.Location = new Point(287, 308);
+            label15.Name = "label15";
+            label15.Size = new Size(53, 20);
+            label15.TabIndex = 70;
+            label15.Text = "Email :";
             // 
             // textBoxFax
             // 
-            this.textBoxFax.Location = new System.Drawing.Point(731, 305);
-            this.textBoxFax.Name = "textBoxFax";
-            this.textBoxFax.Size = new System.Drawing.Size(114, 27);
-            this.textBoxFax.TabIndex = 73;
+            textBoxFax.Location = new Point(731, 305);
+            textBoxFax.Name = "textBoxFax";
+            textBoxFax.Size = new Size(114, 27);
+            textBoxFax.TabIndex = 73;
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(688, 308);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(37, 20);
-            this.label17.TabIndex = 72;
-            this.label17.Text = "Fax :";
+            label17.AutoSize = true;
+            label17.Location = new Point(688, 308);
+            label17.Name = "label17";
+            label17.Size = new Size(37, 20);
+            label17.TabIndex = 72;
+            label17.Text = "Fax :";
             // 
             // textBoxWeb
             // 
-            this.textBoxWeb.Location = new System.Drawing.Point(368, 354);
-            this.textBoxWeb.Name = "textBoxWeb";
-            this.textBoxWeb.Size = new System.Drawing.Size(141, 27);
-            this.textBoxWeb.TabIndex = 77;
+            textBoxWeb.Location = new Point(368, 354);
+            textBoxWeb.Name = "textBoxWeb";
+            textBoxWeb.Size = new Size(141, 27);
+            textBoxWeb.TabIndex = 77;
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(287, 357);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(75, 20);
-            this.label14.TabIndex = 76;
-            this.label14.Text = "Site Web :";
+            label14.AutoSize = true;
+            label14.Location = new Point(287, 357);
+            label14.Name = "label14";
+            label14.Size = new Size(75, 20);
+            label14.TabIndex = 76;
+            label14.Text = "Site Web :";
             // 
             // textBoxAdrPostale
             // 
-            this.textBoxAdrPostale.Location = new System.Drawing.Point(645, 354);
-            this.textBoxAdrPostale.Name = "textBoxAdrPostale";
-            this.textBoxAdrPostale.Size = new System.Drawing.Size(181, 27);
-            this.textBoxAdrPostale.TabIndex = 75;
+            textBoxAdrPostale.Location = new Point(645, 354);
+            textBoxAdrPostale.Name = "textBoxAdrPostale";
+            textBoxAdrPostale.Size = new Size(181, 27);
+            textBoxAdrPostale.TabIndex = 75;
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(520, 357);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(119, 20);
-            this.label18.TabIndex = 74;
-            this.label18.Text = "Adresse Postale :";
+            label18.AutoSize = true;
+            label18.Location = new Point(520, 357);
+            label18.Name = "label18";
+            label18.Size = new Size(119, 20);
+            label18.TabIndex = 74;
+            label18.Text = "Adresse Postale :";
             // 
             // listBoxSexes
             // 
-            this.listBoxSexes.FormattingEnabled = true;
-            this.listBoxSexes.ItemHeight = 20;
-            this.listBoxSexes.Location = new System.Drawing.Point(451, 432);
-            this.listBoxSexes.Name = "listBoxSexes";
-            this.listBoxSexes.Size = new System.Drawing.Size(210, 44);
-            this.listBoxSexes.TabIndex = 78;
+            listBoxSexes.FormattingEnabled = true;
+            listBoxSexes.ItemHeight = 20;
+            listBoxSexes.Location = new Point(451, 432);
+            listBoxSexes.Name = "listBoxSexes";
+            listBoxSexes.Size = new Size(210, 44);
+            listBoxSexes.TabIndex = 78;
             // 
             // listBoxTypesContrat
             // 
-            this.listBoxTypesContrat.FormattingEnabled = true;
-            this.listBoxTypesContrat.ItemHeight = 20;
-            this.listBoxTypesContrat.Location = new System.Drawing.Point(451, 482);
-            this.listBoxTypesContrat.Name = "listBoxTypesContrat";
-            this.listBoxTypesContrat.Size = new System.Drawing.Size(210, 44);
-            this.listBoxTypesContrat.TabIndex = 79;
+            listBoxTypesContrat.FormattingEnabled = true;
+            listBoxTypesContrat.ItemHeight = 20;
+            listBoxTypesContrat.Location = new Point(451, 482);
+            listBoxTypesContrat.Name = "listBoxTypesContrat";
+            listBoxTypesContrat.Size = new Size(210, 44);
+            listBoxTypesContrat.TabIndex = 79;
             // 
             // listBoxMetiers
             // 
-            this.listBoxMetiers.FormattingEnabled = true;
-            this.listBoxMetiers.ItemHeight = 20;
-            this.listBoxMetiers.Location = new System.Drawing.Point(451, 532);
-            this.listBoxMetiers.Name = "listBoxMetiers";
-            this.listBoxMetiers.Size = new System.Drawing.Size(210, 44);
-            this.listBoxMetiers.TabIndex = 80;
+            listBoxMetiers.FormattingEnabled = true;
+            listBoxMetiers.ItemHeight = 20;
+            listBoxMetiers.Location = new Point(451, 532);
+            listBoxMetiers.Name = "listBoxMetiers";
+            listBoxMetiers.Size = new Size(210, 44);
+            listBoxMetiers.TabIndex = 80;
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(391, 444);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 20);
-            this.label19.TabIndex = 81;
-            this.label19.Text = "Sexes :";
+            label19.AutoSize = true;
+            label19.Location = new Point(391, 444);
+            label19.Name = "label19";
+            label19.Size = new Size(53, 20);
+            label19.TabIndex = 81;
+            label19.Text = "Sexes :";
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(320, 494);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(125, 20);
-            this.label20.TabIndex = 82;
-            this.label20.Text = "Types de contrat :";
+            label20.AutoSize = true;
+            label20.Location = new Point(320, 494);
+            label20.Name = "label20";
+            label20.Size = new Size(125, 20);
+            label20.TabIndex = 82;
+            label20.Text = "Types de contrat :";
             // 
             // label21
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(379, 544);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(65, 20);
-            this.label21.TabIndex = 83;
-            this.label21.Text = "Métiers :";
+            label21.AutoSize = true;
+            label21.Location = new Point(379, 544);
+            label21.Name = "label21";
+            label21.Size = new Size(65, 20);
+            label21.TabIndex = 83;
+            label21.Text = "Métiers :";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(687, 432);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 44);
-            this.button3.TabIndex = 84;
-            this.button3.Text = "Configurer";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.ConfigSexes);
+            button3.Location = new Point(687, 432);
+            button3.Name = "button3";
+            button3.Size = new Size(110, 44);
+            button3.TabIndex = 84;
+            button3.Text = "Configurer";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += ConfigSexes;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(688, 532);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 44);
-            this.button4.TabIndex = 85;
-            this.button4.Text = "Configurer";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.ConfigMetiers);
+            button4.Location = new Point(688, 532);
+            button4.Name = "button4";
+            button4.Size = new Size(110, 44);
+            button4.TabIndex = 85;
+            button4.Text = "Configurer";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += ConfigMetiers;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(688, 482);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(110, 44);
-            this.button5.TabIndex = 86;
-            this.button5.Text = "Configurer";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.ConfigTypeContrat);
+            button5.Location = new Point(688, 482);
+            button5.Name = "button5";
+            button5.Size = new Size(110, 44);
+            button5.TabIndex = 86;
+            button5.Text = "Configurer";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += ConfigTypeContrat;
             // 
             // textBoxLocalisation
             // 
-            this.textBoxLocalisation.Location = new System.Drawing.Point(388, 399);
-            this.textBoxLocalisation.Name = "textBoxLocalisation";
-            this.textBoxLocalisation.Size = new System.Drawing.Size(141, 27);
-            this.textBoxLocalisation.TabIndex = 88;
+            textBoxLocalisation.Location = new Point(388, 399);
+            textBoxLocalisation.Name = "textBoxLocalisation";
+            textBoxLocalisation.Size = new Size(141, 27);
+            textBoxLocalisation.TabIndex = 88;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(287, 402);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 20);
-            this.label3.TabIndex = 87;
-            this.label3.Text = "Localisation :";
+            label3.AutoSize = true;
+            label3.Location = new Point(287, 402);
+            label3.Name = "label3";
+            label3.Size = new Size(95, 20);
+            label3.TabIndex = 87;
+            label3.Text = "Localisation :";
+            // 
+            // textBoxSearch
+            // 
+            textBoxSearch.Location = new Point(93, 63);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.Size = new Size(184, 27);
+            textBoxSearch.TabIndex = 89;
+            textBoxSearch.TextChanged += SearchCastings;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 66);
+            label5.Name = "label5";
+            label5.Size = new Size(84, 20);
+            label5.TabIndex = 90;
+            label5.Text = "Recherche :";
             // 
             // GestionCasting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBoxLocalisation);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.listBoxMetiers);
-            this.Controls.Add(this.listBoxTypesContrat);
-            this.Controls.Add(this.listBoxSexes);
-            this.Controls.Add(this.textBoxWeb);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBoxAdrPostale);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.textBoxFax);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBoxPhone);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.checkBoxVerif);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBoxDescProfil);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBoxDescPoste);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.numericUpDownNbrPoste);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePickerDebutContrat);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.numericUpDownDureeDiff);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePickerDebutPubli);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBoxIntitule);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.labelReference);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.labelId);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.listBoxCasting);
-            this.Name = "GestionCasting";
-            this.Size = new System.Drawing.Size(866, 672);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDureeDiff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNbrPoste)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label5);
+            Controls.Add(textBoxSearch);
+            Controls.Add(textBoxLocalisation);
+            Controls.Add(label3);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(label21);
+            Controls.Add(label20);
+            Controls.Add(label19);
+            Controls.Add(listBoxMetiers);
+            Controls.Add(listBoxTypesContrat);
+            Controls.Add(listBoxSexes);
+            Controls.Add(textBoxWeb);
+            Controls.Add(label14);
+            Controls.Add(textBoxAdrPostale);
+            Controls.Add(label18);
+            Controls.Add(textBoxFax);
+            Controls.Add(label17);
+            Controls.Add(textBoxEmail);
+            Controls.Add(label15);
+            Controls.Add(textBoxPhone);
+            Controls.Add(label16);
+            Controls.Add(checkBoxVerif);
+            Controls.Add(label13);
+            Controls.Add(textBoxDescProfil);
+            Controls.Add(label12);
+            Controls.Add(textBoxDescPoste);
+            Controls.Add(label11);
+            Controls.Add(numericUpDownNbrPoste);
+            Controls.Add(label10);
+            Controls.Add(dateTimePickerDebutContrat);
+            Controls.Add(label9);
+            Controls.Add(numericUpDownDureeDiff);
+            Controls.Add(label8);
+            Controls.Add(dateTimePickerDebutPubli);
+            Controls.Add(label7);
+            Controls.Add(textBoxIntitule);
+            Controls.Add(label6);
+            Controls.Add(labelReference);
+            Controls.Add(label4);
+            Controls.Add(labelId);
+            Controls.Add(label1);
+            Controls.Add(buttonDelete);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(label2);
+            Controls.Add(listBoxCasting);
+            Name = "GestionCasting";
+            Size = new Size(866, 672);
+            ((System.ComponentModel.ISupportInitialize)numericUpDownDureeDiff).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownNbrPoste).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -583,5 +603,7 @@
         private Button button5;
         private TextBox textBoxLocalisation;
         private Label label3;
+        private TextBox textBoxSearch;
+        private Label label5;
     }
 }

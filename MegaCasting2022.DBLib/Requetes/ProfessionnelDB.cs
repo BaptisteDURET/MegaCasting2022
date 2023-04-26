@@ -11,53 +11,43 @@ namespace MegaCasting2022.DBLib.Requetes
     {
         public static List<Professionnel> All()
         {
-            using (var context = new MegaCasting2022Context())
-            {
-                return context.Professionnels.ToList();
-            }
+            using var context = new MegaCasting2022Context();
+            return context.Professionnels.ToList();
         }
 
         public static void Delete(Professionnel p)
         {
-            using (var context = new MegaCasting2022Context())
+            using var context = new MegaCasting2022Context();
+            if (p != null)
             {
-                if (p != null)
-                {
-                    context.Professionnels.Remove(p);
-                    context.SaveChanges();
-                }
+                context.Professionnels.Remove(p);
+                context.SaveChanges();
             }
         }
 
         public static Professionnel CheckUniqueUsername(string username)
         {
-            using (var context = new MegaCasting2022Context())
-            {
-                return context.Professionnels.FirstOrDefault(p => p.NomUtilisateur == username);
-            }
+            using var context = new MegaCasting2022Context();
+            return context.Professionnels.FirstOrDefault(p => p.NomUtilisateur == username);
         }
 
         public static void Insert(Professionnel p)
         {
-            using (var context = new MegaCasting2022Context())
+            using var context = new MegaCasting2022Context();
+            if (p != null)
             {
-                if (p != null)
-                {
-                    context.Professionnels.Add(p);
-                    context.SaveChanges();
-                }
+                context.Professionnels.Add(p);
+                context.SaveChanges();
             }
         }
 
         public static void Update(Professionnel p)
         {
-            using (var context = new MegaCasting2022Context())
+            using var context = new MegaCasting2022Context();
+            if (p != null)
             {
-                if (p != null)
-                {
-                    context.Professionnels.Update(p);
-                    context.SaveChanges();
-                }
+                context.Professionnels.Update(p);
+                context.SaveChanges();
             }
         }
     }
