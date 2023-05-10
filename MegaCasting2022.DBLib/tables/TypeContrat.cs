@@ -5,7 +5,7 @@ namespace MegaCasting2022.DBLib.tables;
 
 public partial class TypeContrat
 {
-    public long Identifiant { get; set; }
+    public int Identifiant { get; set; }
 
     public string LibelleCourt { get; set; } = null!;
 

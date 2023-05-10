@@ -39,7 +39,7 @@ namespace MegaCasting2022
             {
                 PartenaireDiffusion partenaire = (PartenaireDiffusion)listBoxPartenaire.SelectedItem;
                 labelId.Text = partenaire.Identifiant.ToString();
-                textBoxUsername.Text = partenaire.NomUtilisateur;
+                textBoxUsername.Text = partenaire.Nom;
                 textBoxPhone.Text = partenaire.NumeroTelephone;
                 textBoxEmail.Text = partenaire.Email;
                 textBoxEntreprise.Text = partenaire.Entreprise;
@@ -64,10 +64,10 @@ namespace MegaCasting2022
         private void UpdatePartenaire(object sender, EventArgs e)
         {
             PartenaireDiffusion par = (PartenaireDiffusion)listBoxPartenaire.SelectedItem;
-            if (textBoxUsername.Text != par.NomUtilisateur || textBoxPhone.Text != par.NumeroTelephone || textBoxEmail.Text != par.Email || textBoxEntreprise.Text != par.Entreprise || checkBoxVerif.Checked != par.Verifie)
+            if (textBoxUsername.Text != par.Nom || textBoxPhone.Text != par.NumeroTelephone || textBoxEmail.Text != par.Email || textBoxEntreprise.Text != par.Entreprise || checkBoxVerif.Checked != par.Verifie)
             {
                 Professionnel p = new Professionnel();
-                par.NomUtilisateur = textBoxUsername.Text;
+                par.Nom = textBoxUsername.Text;
                 par.NumeroTelephone = textBoxPhone.Text;
                 par.Email = textBoxEmail.Text;
                 par.Entreprise = textBoxEntreprise.Text;
@@ -75,7 +75,7 @@ namespace MegaCasting2022
                 PartenaireDB.Update(par);
                 initListBoxPartenaire();
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult dialogResult = MessageBox.Show("Le partenaire " + par.NomUtilisateur + " de l'entreprise " + par.Entreprise + " a bien été mis à jour !", "Succès", buttons, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show("Le partenaire " + par.Nom + " de l'entreprise " + par.Entreprise + " a bien été mis à jour !", "Succès", buttons, MessageBoxIcon.Information);
             }
         }
 

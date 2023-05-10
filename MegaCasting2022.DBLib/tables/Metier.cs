@@ -5,11 +5,11 @@ namespace MegaCasting2022.DBLib.tables;
 
 public partial class Metier
 {
-    public long Identifiant { get; set; }
+    public int Identifiant { get; set; }
 
     public string Libelle { get; set; } = null!;
 
-    public long IdentifiantDomaineMetier { get; set; }
+    public int IdentifiantDomaineMetier { get; set; }
 
     public virtual FicheMetier? FicheMetier { get; set; }
 

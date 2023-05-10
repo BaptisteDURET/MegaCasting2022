@@ -28,7 +28,7 @@ namespace MegaCasting2022.DBLib.Requetes
         public static Professionnel CheckUniqueUsername(string username)
         {
             using var context = new MegaCasting2022Context();
-            return context.Professionnels.FirstOrDefault(p => p.NomUtilisateur == username);
+            return context.Professionnels.FirstOrDefault(p => p.Nom == username);
         }
 
         public static void Insert(Professionnel p)

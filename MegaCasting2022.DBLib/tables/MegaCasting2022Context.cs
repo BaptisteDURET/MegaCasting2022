@@ -45,7 +45,7 @@ public partial class MegaCasting2022Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=localhost;Database=MegaCasting2022;Trusted_Connection=True;Encrypt=False;");
+        => optionsBuilder.UseSqlServer("Server=localhost;Database=test123;Trusted_Connection=True;Encrypt=False;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -60,7 +60,7 @@ public partial class MegaCasting2022Context : DbContext
                 .HasMaxLength(200)
                 .IsUnicode(false)
                 .HasColumnName("CV");
-            entity.Property(e => e.IdentifiantSexe).HasColumnName("Identifiant_Sexe");
+            entity.Property(e => e.IdentifiantSexe).HasColumnName("IdentifiantSexe");
             entity.Property(e => e.Nom)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -100,7 +100,7 @@ public partial class MegaCasting2022Context : DbContext
             entity.Property(e => e.Fax)
                 .HasMaxLength(150)
                 .IsUnicode(false);
-            entity.Property(e => e.IdentifiantProfessionnel).HasColumnName("Identifiant_Professionnel");
+            entity.Property(e => e.IdentifiantProfessionnel).HasColumnName("IdentifiantProfessionnel");
             entity.Property(e => e.Intitule)
                 .HasMaxLength(150)
                 .IsUnicode(false);
@@ -116,62 +116,29 @@ public partial class MegaCasting2022Context : DbContext
             entity.Property(e => e.SiteWeb)
                 .HasMaxLength(100)
                 .IsUnicode(false);
+            entity.Property(e => e.IdentifiantTypeContrat).HasColumnName("IdentifiantTypeContrat");
+            entity.Property(e => e.IdentifiantMetier).HasColumnName("IdentifiantMetier");
+            entity.Property(e => e.IdentifiantSexe).HasColumnName("IdentifiantSexe");
 
             entity.HasOne(d => d.IdentifiantProfessionnelNavigation).WithMany(p => p.Castings)
                 .HasForeignKey(d => d.IdentifiantProfessionnel)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Casting__Identif__48CFD27E");
 
-            entity.HasMany(d => d.IdentifiantMetiers).WithMany(p => p.IdentifiantCastings)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Cherche",
-                    r => r.HasOne<Metier>().WithMany()
-                        .HasForeignKey("IdentifiantMetier")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Cherche__Identif__5441852A"),
-                    l => l.HasOne<Casting>().WithMany()
-                        .HasForeignKey("IdentifiantCasting")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Cherche__Identif__534D60F1"),
-                    j =>
-                    {
-                        j.HasKey("IdentifiantCasting", "IdentifiantMetier").HasName("PK__Cherche__8C0897D1AB2EBE54");
-                        j.ToTable("Cherche");
-                    });
+            entity.HasOne(d => d.IdentifiantMetierNavigation).WithMany(p => p.IdentifiantCastings)
+                .HasForeignKey(d => d.IdentifiantMetier)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Casting__Identif__47DBAE45");
 
-            entity.HasMany(d => d.IdentifiantSexes).WithMany(p => p.IdentifiantCastings)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Recherche",
-                    r => r.HasOne<Sexe>().WithMany()
-                        .HasForeignKey("IdentifiantSexe")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Recherche__Ident__4CA06362"),
-                    l => l.HasOne<Casting>().WithMany()
-                        .HasForeignKey("IdentifiantCasting")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Recherche__Ident__4BAC3F29"),
-                    j =>
-                    {
-                        j.HasKey("IdentifiantCasting", "IdentifiantSexe").HasName("PK__Recherch__3902575C68C3E39F");
-                        j.ToTable("Recherche");
-                    });
+            entity.HasOne(d => d.IdentifiantSexeNavigation).WithMany(p => p.IdentifiantCastings)
+                .HasForeignKey(d => d.IdentifiantSexe)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Casting__Identif__4AB81AF0");
 
-            entity.HasMany(d => d.IdentifiantTypeContrats).WithMany(p => p.IdentifiantCastings)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Propose",
-                    r => r.HasOne<TypeContrat>().WithMany()
-                        .HasForeignKey("IdentifiantTypeContrat")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Propose__Identif__5812160E"),
-                    l => l.HasOne<Casting>().WithMany()
-                        .HasForeignKey("IdentifiantCasting")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Propose__Identif__571DF1D5"),
-                    j =>
-                    {
-                        j.HasKey("IdentifiantCasting", "IdentifiantTypeContrat").HasName("PK__Propose__D29E402CB0787CF2");
-                        j.ToTable("Propose");
-                    });
+            entity.HasOne(d => d.IdentifiantTypeContratNavigation).WithMany(p => p.IdentifiantCastings)
+                .HasForeignKey(d => d.IdentifiantTypeContrat)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Casting__Identif__49C3F6B7");
         });
 
         modelBuilder.Entity<Conseil>(entity =>
@@ -257,7 +224,7 @@ public partial class MegaCasting2022Context : DbContext
 
             entity.ToTable("Metier");
 
-            entity.Property(e => e.IdentifiantDomaineMetier).HasColumnName("Identifiant_Domaine_Metier");
+            entity.Property(e => e.IdentifiantDomaineMetier).HasColumnName("IdentifiantDomaineMetier");
             entity.Property(e => e.Libelle)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -360,7 +327,7 @@ public partial class MegaCasting2022Context : DbContext
 
             entity.ToTable("Utilisateur");
 
-            entity.HasIndex(e => e.NomUtilisateur, "UQ__Utilisat__49EDB0E51B4D8934").IsUnique();
+            entity.HasIndex(e => e.Nom, "UQ__Utilisat__49EDB0E51B4D8934").IsUnique();
 
             entity.Property(e => e.Email)
                 .HasMaxLength(150)
@@ -368,7 +335,7 @@ public partial class MegaCasting2022Context : DbContext
             entity.Property(e => e.MotDePasse)
                 .HasMaxLength(80)
                 .IsUnicode(false);
-            entity.Property(e => e.NomUtilisateur)
+            entity.Property(e => e.Nom)
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.NumeroTelephone)

@@ -5,7 +5,7 @@ namespace MegaCasting2022.DBLib.tables;
 
 public partial class Casting
 {
-    public long Identifiant { get; set; }
+    public int Identifiant { get; set; }
 
     public string Intitule { get; set; } = null!;
 
@@ -37,15 +37,21 @@ public partial class Casting
 
     public bool Verifie { get; set; }
 
-    public long IdentifiantProfessionnel { get; set; }
+    public int IdentifiantProfessionnel { get; set; }
+
+    public int? IdentifiantMetier { get; set; }
+
+    public int? IdentifiantSexe { get; set; }
+
+    public int IdentifiantTypeContrat { get; set; }
 
     public virtual Professionnel IdentifiantProfessionnelNavigation { get; set; } = null!;
 
-    public virtual ICollection<Metier> IdentifiantMetiers { get; } = new List<Metier>();
+    public virtual Metier? IdentifiantMetierNavigation { get; set; }
 
-    public virtual ICollection<Sexe> IdentifiantSexes { get; } = new List<Sexe>();
+    public virtual Sexe? IdentifiantSexeNavigation { get; set; }
 
-    public virtual ICollection<TypeContrat> IdentifiantTypeContrats { get; } = new List<TypeContrat>();
+    public virtual TypeContrat IdentifiantTypeContratNavigation { get; set; } = null!;
 
     public override string ToString()
     {

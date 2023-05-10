@@ -63,19 +63,16 @@
             label14 = new Label();
             textBoxAdrPostale = new TextBox();
             label18 = new Label();
-            listBoxSexes = new ListBox();
-            listBoxTypesContrat = new ListBox();
-            listBoxMetiers = new ListBox();
-            label19 = new Label();
-            label20 = new Label();
-            label21 = new Label();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
             textBoxLocalisation = new TextBox();
             label3 = new Label();
             textBoxSearch = new TextBox();
             label5 = new Label();
+            comboBoxMetier = new ComboBox();
+            comboBoxTypeContrat = new ComboBox();
+            comboBoxSexe = new ComboBox();
+            label19 = new Label();
+            label21 = new Label();
+            label20 = new Label();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDureeDiff).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNbrPoste).BeginInit();
             SuspendLayout();
@@ -378,90 +375,6 @@
             label18.TabIndex = 74;
             label18.Text = "Adresse Postale :";
             // 
-            // listBoxSexes
-            // 
-            listBoxSexes.FormattingEnabled = true;
-            listBoxSexes.ItemHeight = 20;
-            listBoxSexes.Location = new Point(451, 432);
-            listBoxSexes.Name = "listBoxSexes";
-            listBoxSexes.Size = new Size(210, 44);
-            listBoxSexes.TabIndex = 78;
-            // 
-            // listBoxTypesContrat
-            // 
-            listBoxTypesContrat.FormattingEnabled = true;
-            listBoxTypesContrat.ItemHeight = 20;
-            listBoxTypesContrat.Location = new Point(451, 482);
-            listBoxTypesContrat.Name = "listBoxTypesContrat";
-            listBoxTypesContrat.Size = new Size(210, 44);
-            listBoxTypesContrat.TabIndex = 79;
-            // 
-            // listBoxMetiers
-            // 
-            listBoxMetiers.FormattingEnabled = true;
-            listBoxMetiers.ItemHeight = 20;
-            listBoxMetiers.Location = new Point(451, 532);
-            listBoxMetiers.Name = "listBoxMetiers";
-            listBoxMetiers.Size = new Size(210, 44);
-            listBoxMetiers.TabIndex = 80;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(391, 444);
-            label19.Name = "label19";
-            label19.Size = new Size(53, 20);
-            label19.TabIndex = 81;
-            label19.Text = "Sexes :";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(320, 494);
-            label20.Name = "label20";
-            label20.Size = new Size(125, 20);
-            label20.TabIndex = 82;
-            label20.Text = "Types de contrat :";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Location = new Point(379, 544);
-            label21.Name = "label21";
-            label21.Size = new Size(65, 20);
-            label21.TabIndex = 83;
-            label21.Text = "Métiers :";
-            // 
-            // button3
-            // 
-            button3.Location = new Point(687, 432);
-            button3.Name = "button3";
-            button3.Size = new Size(110, 44);
-            button3.TabIndex = 84;
-            button3.Text = "Configurer";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += ConfigSexes;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(688, 532);
-            button4.Name = "button4";
-            button4.Size = new Size(110, 44);
-            button4.TabIndex = 85;
-            button4.Text = "Configurer";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += ConfigMetiers;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(688, 482);
-            button5.Name = "button5";
-            button5.Size = new Size(110, 44);
-            button5.TabIndex = 86;
-            button5.Text = "Configurer";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += ConfigTypeContrat;
-            // 
             // textBoxLocalisation
             // 
             textBoxLocalisation.Location = new Point(388, 399);
@@ -495,23 +408,71 @@
             label5.TabIndex = 90;
             label5.Text = "Recherche :";
             // 
+            // comboBoxMetier
+            // 
+            comboBoxMetier.FormattingEnabled = true;
+            comboBoxMetier.Location = new Point(675, 459);
+            comboBoxMetier.Name = "comboBoxMetier";
+            comboBoxMetier.Size = new Size(151, 28);
+            comboBoxMetier.TabIndex = 138;
+            // 
+            // comboBoxTypeContrat
+            // 
+            comboBoxTypeContrat.FormattingEnabled = true;
+            comboBoxTypeContrat.Location = new Point(703, 398);
+            comboBoxTypeContrat.Name = "comboBoxTypeContrat";
+            comboBoxTypeContrat.Size = new Size(151, 28);
+            comboBoxTypeContrat.TabIndex = 137;
+            // 
+            // comboBoxSexe
+            // 
+            comboBoxSexe.FormattingEnabled = true;
+            comboBoxSexe.Location = new Point(392, 459);
+            comboBoxSexe.Name = "comboBoxSexe";
+            comboBoxSexe.Size = new Size(151, 28);
+            comboBoxSexe.TabIndex = 136;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(315, 462);
+            label19.Name = "label19";
+            label19.Size = new Size(47, 20);
+            label19.TabIndex = 135;
+            label19.Text = "Sexe :";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(578, 462);
+            label21.Name = "label21";
+            label21.Size = new Size(59, 20);
+            label21.TabIndex = 134;
+            label21.Text = "Métier :";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(541, 401);
+            label20.Name = "label20";
+            label20.Size = new Size(125, 20);
+            label20.TabIndex = 133;
+            label20.Text = "Types de contrat :";
+            // 
             // GestionCasting
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(comboBoxMetier);
+            Controls.Add(comboBoxTypeContrat);
+            Controls.Add(comboBoxSexe);
+            Controls.Add(label19);
+            Controls.Add(label21);
+            Controls.Add(label20);
             Controls.Add(label5);
             Controls.Add(textBoxSearch);
             Controls.Add(textBoxLocalisation);
             Controls.Add(label3);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(label21);
-            Controls.Add(label20);
-            Controls.Add(label19);
-            Controls.Add(listBoxMetiers);
-            Controls.Add(listBoxTypesContrat);
-            Controls.Add(listBoxSexes);
             Controls.Add(textBoxWeb);
             Controls.Add(label14);
             Controls.Add(textBoxAdrPostale);
@@ -592,18 +553,15 @@
         private Label label14;
         private TextBox textBoxAdrPostale;
         private Label label18;
-        private ListBox listBoxSexes;
-        private ListBox listBoxTypesContrat;
-        private ListBox listBoxMetiers;
-        private Label label19;
-        private Label label20;
-        private Label label21;
-        private Button button3;
-        private Button button4;
-        private Button button5;
         private TextBox textBoxLocalisation;
         private Label label3;
         private TextBox textBoxSearch;
         private Label label5;
+        private ComboBox comboBoxMetier;
+        private ComboBox comboBoxTypeContrat;
+        private ComboBox comboBoxSexe;
+        private Label label19;
+        private Label label21;
+        private Label label20;
     }
 }

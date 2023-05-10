@@ -86,7 +86,7 @@ namespace MegaCasting2022.DBLib.Migrations
                 {
                     Identifiant = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NomUtilisateur = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    Nom = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
                     MotDePasse = table.Column<string>(type: "varchar(80)", unicode: false, maxLength: 80, nullable: false),
                     NumeroTelephone = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: true),
                     Email = table.Column<string>(type: "varchar(150)", unicode: false, maxLength: 150, nullable: true)
@@ -411,7 +411,7 @@ namespace MegaCasting2022.DBLib.Migrations
             migrationBuilder.CreateIndex(
                 name: "UQ__Utilisat__49EDB0E51B4D8934",
                 table: "Utilisateur",
-                column: "NomUtilisateur",
+                column: "Nom",
                 unique: true);
         }
 

@@ -9,6 +9,7 @@ namespace MegaCasting2022
         public MegaCasting()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             InitForm();
         }
 

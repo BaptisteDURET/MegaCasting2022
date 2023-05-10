@@ -39,7 +39,7 @@ namespace MegaCasting2022
             {
                 Professionnel professionnel = (Professionnel)listBoxClient.SelectedItem;
                 labelId.Text = professionnel.Identifiant.ToString();
-                textBoxUsername.Text = professionnel.NomUtilisateur;
+                textBoxUsername.Text = professionnel.Nom;
                 textBoxEntreprise.Text = professionnel.Entreprise;
                 textBoxEmail.Text = professionnel.Email;
                 textBoxPhone.Text = professionnel.NumeroTelephone;
@@ -74,10 +74,10 @@ namespace MegaCasting2022
         private void ModifyClient(object sender, EventArgs e)
         {
             Professionnel pro = (Professionnel)listBoxClient.SelectedItem;
-            if (textBoxUsername.Text != pro.NomUtilisateur || textBoxPhone.Text != pro.NumeroTelephone || textBoxEmail.Text != pro.Email || textBoxEntreprise.Text != pro.Entreprise || checkBoxVerif.Checked != pro.Verifie)
+            if (textBoxUsername.Text != pro.Nom || textBoxPhone.Text != pro.NumeroTelephone || textBoxEmail.Text != pro.Email || textBoxEntreprise.Text != pro.Entreprise || checkBoxVerif.Checked != pro.Verifie)
             {
                 Professionnel p = new Professionnel();
-                pro.NomUtilisateur = textBoxUsername.Text;
+                pro.Nom = textBoxUsername.Text;
                 pro.NumeroTelephone = textBoxPhone.Text;
                 pro.Email = textBoxEmail.Text;
                 pro.Entreprise = textBoxEntreprise.Text;
@@ -85,7 +85,7 @@ namespace MegaCasting2022
                 ProfessionnelDB.Update(pro);
                 InitListBoxClient();
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult dialogResult = MessageBox.Show("Le client " + pro.NomUtilisateur + " de l'entreprise " + pro.Entreprise + " a bien été mis à jour !", "Succès", buttons, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show("Le client " + pro.Nom + " de l'entreprise " + pro.Entreprise + " a bien été mis à jour !", "Succès", buttons, MessageBoxIcon.Information);
             }
         }
     }

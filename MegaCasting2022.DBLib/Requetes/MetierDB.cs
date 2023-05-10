@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace MegaCasting2022.DBLib.Requetes
 {
-    public static class SexeDB
+    public static class MetierDB
     {
-        public static List<Sexe> All()
+        public static List<Metier> All()
         {
             using var context = new MegaCasting2022Context();
-            return context.Sexes.ToList();
+            return context.Metiers.ToList();
         }
     }
 }

@@ -25,23 +25,29 @@ namespace MegaCasting2022
         public GestionCasting()
         {
             InitializeComponent();
+            AllocConsole();
+            comboBoxMetier.Items.Clear();
+            List<Metier> metiers = MetierDB.All();
+            Metier m = new Metier();
+            m.Libelle = "Aucun";
+            metiers.Insert(0, m);
+            comboBoxMetier.DataSource = metiers;
+
+            comboBoxSexe.Items.Clear();
+            List<Sexe> sexes = SexeDB.All();
+            Sexe s = new Sexe();
+            s.Libelle = "Aucun";
+            sexes.Insert(0, s);
+            comboBoxSexe.DataSource = sexes;
+
+            comboBoxTypeContrat.Items.Clear();
+            List<TypeContrat> typeContrats = TypeContratDB.All();
+            //TypeContrat tc = new TypeContrat();
+            //tc.LibelleCourt = "Aucun";
+            //typeContrats.Insert(0, tc);
+            comboBoxTypeContrat.DataSource = typeContrats;
+
             InitListBoxCasting();
-            InitListBoxSexe();
-        }
-
-        private void ConfigSexes(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConfigTypeContrat(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConfigMetiers(object sender, EventArgs e)
-        {
-
         }
 
         private void InitListBoxCasting()
@@ -59,36 +65,6 @@ namespace MegaCasting2022
             {
                 listBoxCasting.SelectedIndex = 0;
             }
-        }
-
-        private void InitListBoxSexe()
-        {
-            listBoxSexes.Items.Clear();
-
-            if (listBoxCasting.SelectedItem != null)
-            {
-                Casting casting = (Casting)listBoxCasting.SelectedItem;
-                List<Sexe> sexes = SexeDB.All();
-                AllocConsole();
-                Console.WriteLine(casting.IdentifiantSexes.ToList().Count);
-                Console.WriteLine(casting.Identifiant);
-
-                foreach (Sexe sexe in casting.IdentifiantSexes.ToList())
-                {
-                    Console.WriteLine("test2");
-                    listBoxSexes.Items.Add(sexe);
-                    foreach (Sexe s in sexes)
-                    {
-                        if (sexe.Identifiant == s.Identifiant)
-                        {
-                            listBoxSexes.Items.Add(s);
-                        }
-                    }
-                }
-
-            }
-
-
         }
 
         private void UpdateCastingInfo(object sender, EventArgs e)
@@ -124,21 +100,28 @@ namespace MegaCasting2022
                 textBoxAdrPostale.Text = casting.AdressePostale;
                 textBoxLocalisation.Text = casting.Localisation;
 
-                listBoxTypesContrat.Items.Clear();
-                listBoxMetiers.Items.Clear();
-
-                InitListBoxSexe();
-
-                foreach (TypeContrat typeContrat in casting.IdentifiantTypeContrats)
+                int indexMetier = comboBoxMetier.Items.Cast<Metier>().ToList().FindIndex(a => a.Identifiant == casting.IdentifiantMetier);
+                if (indexMetier == -1)
                 {
-                    listBoxTypesContrat.Items.Add(typeContrat);
+                    comboBoxMetier.SelectedIndex = 0;
+                }
+                else
+                {
+                    comboBoxMetier.SelectedIndex = indexMetier;
                 }
 
-                foreach (Metier metier in casting.IdentifiantMetiers)
+                int indexSexe = comboBoxSexe.Items.Cast<Sexe>().ToList().FindIndex(a => a.Identifiant == casting.IdentifiantSexe);
+                if (indexSexe == -1)
                 {
-                    listBoxMetiers.Items.Add(metier);
+                    comboBoxSexe.SelectedIndex = 0;
+                }
+                else
+                {
+                    comboBoxSexe.SelectedIndex = indexSexe;
                 }
 
+                int indexTypeContrat = comboBoxTypeContrat.Items.Cast<TypeContrat>().ToList().FindIndex(a => a.Identifiant == casting.IdentifiantTypeContrat);
+                comboBoxTypeContrat.SelectedIndex = indexTypeContrat;
             }
         }
 
@@ -171,8 +154,12 @@ namespace MegaCasting2022
                     || casting.Fax != textBoxFax.Text
                     || casting.SiteWeb != textBoxWeb.Text
                     || casting.AdressePostale != textBoxAdrPostale.Text
-                    || casting.Localisation != textBoxLocalisation.Text)
+                    || casting.Localisation != textBoxLocalisation.Text
+                    || casting.IdentifiantMetier != comboBoxMetier.SelectedIndex
+                    || casting.IdentifiantSexe != comboBoxSexe.SelectedIndex
+                    || casting.IdentifiantTypeContrat - 1 != comboBoxTypeContrat.SelectedIndex)
                 {
+                    Console.WriteLine(comboBoxTypeContrat.SelectedIndex);
                     casting.Verifie = checkBoxVerif.Checked;
                     casting.Reference = labelReference.Text;
                     casting.DateDebutPublication = dateTimePickerDebutPubli.Value;
@@ -188,24 +175,9 @@ namespace MegaCasting2022
                     casting.SiteWeb = textBoxWeb.Text;
                     casting.AdressePostale = textBoxAdrPostale.Text;
                     casting.Localisation = textBoxLocalisation.Text;
-
-
-
-                    foreach (Sexe sexe in listBoxSexes.Items)
-                    {
-                        casting.IdentifiantSexes.Add(sexe);
-
-                    }
-
-                    foreach (TypeContrat typeContrat in listBoxTypesContrat.Items)
-                    {
-                        casting.IdentifiantTypeContrats.Add(typeContrat);
-                    }
-
-                    foreach (Metier metier in listBoxMetiers.Items)
-                    {
-                        casting.IdentifiantMetiers.Add(metier);
-                    }
+                    casting.IdentifiantMetier = comboBoxMetier.SelectedIndex;
+                    casting.IdentifiantSexe = comboBoxSexe.SelectedIndex;
+                    casting.IdentifiantTypeContrat = comboBoxTypeContrat.SelectedIndex + 1;
 
                     CastingDB.Update(casting);
                     InitListBoxCasting();

@@ -307,7 +307,7 @@ namespace MegaCasting2022.DBLib.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(80)");
 
-                    b.Property<string>("NomUtilisateur")
+                    b.Property<string>("Nom")
                         .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
@@ -320,7 +320,7 @@ namespace MegaCasting2022.DBLib.Migrations
 
                     b.HasKey("Identifiant");
 
-                    b.HasIndex(new[] { "NomUtilisateur" }, "UQ__Utilisat__49EDB0E51B4D8934")
+                    b.HasIndex(new[] { "Nom" }, "UQ__Utilisat__49EDB0E51B4D8934")
                         .IsUnique();
 
                     b.ToTable("Utilisateur", (string)null);

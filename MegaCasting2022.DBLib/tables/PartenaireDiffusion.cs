@@ -5,15 +5,12 @@ namespace MegaCasting2022.DBLib.tables;
 
 public partial class PartenaireDiffusion : Utilisateur
 {
-    //public long Identifiant { get; set; }
-
     public string Entreprise { get; set; } = null!;
 
     public bool Verifie { get; set; }
 
-    //public virtual Utilisateur IdentifiantNavigation { get; set; } = null!;
     public override string ToString()
     {
-        return Identifiant + " - " + NomUtilisateur + " - " + Entreprise;
+        return Identifiant + " - " + Nom + " - " + Entreprise;
     }
 }
