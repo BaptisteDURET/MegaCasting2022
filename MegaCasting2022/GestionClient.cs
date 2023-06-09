@@ -23,9 +23,12 @@ namespace MegaCasting2022
         {
             listBoxClient.Items.Clear();
             List<Professionnel> professionnels = ProfessionnelDB.All();
-            foreach (Professionnel abo in professionnels)
-            {
-                listBoxClient.Items.Add(abo);
+            if (professionnels != null)
+            { 
+                foreach (Professionnel abo in professionnels)
+                {
+                    listBoxClient.Items.Add(abo);
+                }
             }
             if (listBoxClient.Items.Count > 0)
             {

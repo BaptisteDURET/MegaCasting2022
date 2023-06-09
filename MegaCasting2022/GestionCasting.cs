@@ -17,15 +17,15 @@ namespace MegaCasting2022
 {
     public partial class GestionCasting : UserControl
     {
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
+        //[DllImport("kernel32.dll", SetLastError = true)]
+        //[return: MarshalAs(UnmanagedType.Bool)]
+        //static extern bool AllocConsole();
 
 
         public GestionCasting()
         {
             InitializeComponent();
-            AllocConsole();
+            //AllocConsole();
             comboBoxMetier.Items.Clear();
             List<Metier> metiers = MetierDB.All();
             Metier m = new Metier();
@@ -159,7 +159,6 @@ namespace MegaCasting2022
                     || casting.IdentifiantSexe != comboBoxSexe.SelectedIndex
                     || casting.IdentifiantTypeContrat - 1 != comboBoxTypeContrat.SelectedIndex)
                 {
-                    Console.WriteLine(comboBoxTypeContrat.SelectedIndex);
                     casting.Verifie = checkBoxVerif.Checked;
                     casting.Reference = labelReference.Text;
                     casting.DateDebutPublication = dateTimePickerDebutPubli.Value;

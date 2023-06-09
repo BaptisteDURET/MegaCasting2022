@@ -45,7 +45,9 @@ public partial class MegaCasting2022Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=localhost;Database=test123;Trusted_Connection=True;Encrypt=False;");
+        //=> optionsBuilder.UseSqlServer("Server=localhost;Database=test123;User Id=sa;Password=Not24get;Trusted_Connection=False;Encrypt=False;");
+    // SREVEUR DE PROD
+    =>optionsBuilder.UseSqlServer("Server=10.192.97.2;Database=MegaCasting2023;User Id=sa;Password=Not24get;Trusted_Connection=False;Encrypt=False;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -64,14 +66,14 @@ public partial class MegaCasting2022Context : DbContext
             entity.Property(e => e.Nom)
                 .HasMaxLength(50)
                 .IsUnicode(false);
-            entity.Property(e => e.Prenom)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-/*
-            entity.HasOne(d => d.IdentifiantNavigation).WithOne(p => p.Artiste)
-                .HasForeignKey<Artiste>(d => d.Identifiant)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Artiste__Identif__3C69FB99");*/
+            //entity.Property(e => e.Prenom)
+            //    .HasMaxLength(50)
+            //    .IsUnicode(false);
+            /*
+                        entity.HasOne(d => d.IdentifiantNavigation).WithOne(p => p.Artiste)
+                            .HasForeignKey<Artiste>(d => d.Identifiant)
+                            .OnDelete(DeleteBehavior.ClientSetNull)
+                            .HasConstraintName("FK__Artiste__Identif__3C69FB99");*/
 
             entity.HasOne(d => d.IdentifiantSexeNavigation).WithMany(p => p.Artistes)
                 .HasForeignKey(d => d.IdentifiantSexe)
